@@ -119,6 +119,11 @@ def sentiment_to_mood(polarity, compound):
 def health():
     return jsonify({'status': 'ok'})
 
+@app.route("/")
+def home():
+    return jsonify({"status": "ML service running", "endpoints": ["/detect-emotion", "/detect-sentiment", "/health"]})
+
+
 @app.route('/detect-emotion', methods=['POST'])
 def detect_emotion():
     try:
