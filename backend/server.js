@@ -35,6 +35,21 @@ mongoose.connect(mongoUri)
     }
   })
 
+  app.get("/", (req, res) => {
+    res.json({
+      status: "Backend running",
+      endpoints: [
+        "/api/auth",
+        "/api/moods",
+        "/api/playlists",
+        "/api/favorites",
+        "/api/users",
+        "/health"
+      ]
+    })
+  })
+  
+
 // Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/moods', moodRoutes)
