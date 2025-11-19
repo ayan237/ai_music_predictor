@@ -15,7 +15,8 @@ const app = express()
 // Middleware
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://ai-music-predictor.vercel.app"
+  "https://ai-music-predictor.vercel.app",
+  "https://music-frontend-ayans-projects-b63d3c84.vercel.app"
 ];
 
 app.use(cors({
