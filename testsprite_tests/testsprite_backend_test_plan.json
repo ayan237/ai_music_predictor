@@ -1,0 +1,52 @@
+[
+  {
+    "id": "TC001",
+    "title": "test user registration and login",
+    "description": "Verify that the user can successfully register with email and password, receive a JWT token, and log in with valid credentials."
+  },
+  {
+    "id": "TC002",
+    "title": "test mood detection via face",
+    "description": "Verify that the system can detect user mood accurately from facial images using the DeepFace ensemble models with at least 30% confidence threshold."
+  },
+  {
+    "id": "TC003",
+    "title": "test mood detection via text",
+    "description": "Verify that the system can detect user mood accurately from text input using combined VADER, TextBlob, and keyword matching sentiment analysis."
+  },
+  {
+    "id": "TC004",
+    "title": "test fetching spotify playlists by mood",
+    "description": "Verify that the system fetches at least 20 relevant Spotify playlists based on the detected mood with correct metadata."
+  },
+  {
+    "id": "TC005",
+    "title": "test fetching youtube playlists by mood",
+    "description": "Verify that the system fetches at least 20 relevant YouTube playlists based on the detected mood with correct metadata."
+  },
+  {
+    "id": "TC006",
+    "title": "test saving and retrieving favorite playlists",
+    "description": "Verify that users can save playlists to favorites, retrieve them, filter, and remove favorites without duplicates."
+  },
+  {
+    "id": "TC007",
+    "title": "test mood history logging and retrieval",
+    "description": "Verify that mood detection entries are correctly logged with timestamp and detection method and can be retrieved and displayed in chronological order."
+  },
+  {
+    "id": "TC008",
+    "title": "test updating user preferences",
+    "description": "Verify that users can update their preferences for platform (Spotify/YouTube/both) and theme, and the changes persist."
+  },
+  {
+    "id": "TC009",
+    "title": "test secure session management",
+    "description": "Verify that JWT-based sessions are managed securely via cookies with a 7-day expiration and proper logout functionality."
+  },
+  {
+    "id": "TC010",
+    "title": "test error handling for api calls",
+    "description": "Verify that the system handles errors gracefully for all API calls including network errors, invalid inputs, and API rate limits with appropriate user feedback."
+  }
+]

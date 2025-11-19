@@ -1,0 +1,204 @@
+{
+  "meta": {
+    "project": "AI Music Mood Matcher",
+    "date": "2025-11-14",
+    "prepared_by": "Development Team"
+  },
+  "product_overview": "AI Music Mood Matcher is an AI-powered web application that detects user mood through facial recognition or text sentiment analysis and provides personalized music playlists from Spotify and YouTube. It offers users a unique music discovery experience tailored in real-time to their emotional state, supports mood history tracking, favorites management, and delivers seamless multi-platform music integration via an intuitive modern UI.",
+  "core_goals": [
+    "Provide real-time and accurate detection of user mood using facial recognition and text sentiment analysis.",
+    "Automatically curate and recommend personalized music playlists from Spotify and YouTube that match the user's detected mood.",
+    "Enable users to track and analyze their mood history and emotional patterns over time.",
+    "Offer a user-friendly, responsive, and visually appealing interface with smooth animations and modern UI effects.",
+    "Support secure user authentication and personalized preferences to enhance user engagement and data persistence."
+  ],
+  "key_features": [
+    "Dual Mood Detection System with facial emotion recognition using DeepFace ensemble models and text-based sentiment analysis using VADER, TextBlob, and keyword matching.",
+    "Music playlist curation integrating Spotify and YouTube APIs to fetch mood-based playlists with keyword mappings.",
+    "User account management featuring JWT-based email/password authentication, user preferences for platform and theme, and session management via secure cookies.",
+    "Mood history logging, timeline visualization, and analytics with interactive charts to help users understand their emotional patterns.",
+    "Favorites management allowing users to save, filter, and organize favorite playlists from both Spotify and YouTube.",
+    "Mobile-first responsive design with futuristic dark theme, glassmorphism UI components, and smooth Framer Motion animations.",
+    "Comprehensive error handling and loading states for all major interactions, including mood detection, playlist fetching, and user actions."
+  ],
+  "user_flow_summary": [
+    "New User Registration and First Mood Detection: User creates an account, selects a mood detection method (face or text), the system detects mood, and recommends matching playlists from Spotify and YouTube.",
+    "Returning User Quick Mood Check: User logs in, quickly detects mood, views recommended playlists, saves favorites, and reviews mood history.",
+    "Mood History Analysis: User views a chronological timeline of past mood detections with color-coded indicators, filters results, explores recommended playlists from past moods, and reviews mood analytics.",
+    "Favorites Management: User saves playlists to favorites from results, filters and sorts favorites in the dedicated favorites page, and opens or removes playlists as desired."
+  ],
+  "validation_criteria": [
+    "Accuracy of mood detection from facial images with a confidence threshold of at least 30% and accurate mapping to supported mood labels.",
+    "Reliability and correctness of text-based sentiment analysis using combined VADER, TextBlob, and keyword scoring with confidence evaluation.",
+    "Successful fetching of Spotify and YouTube playlists based on mood with relevant metadata and no less than 20 playlists per platform where available.",
+    "Secure and robust user authentication with JWT tokens, email validation, and password hashing.",
+    "Correct logging of mood history entries tied to authenticated users with timestamp and detection method.",
+    "UI responsiveness across device screen sizes with consistent and smooth animations using Framer Motion.",
+    "Proper saving, retrieval, filtering, and removal of favorite playlists with prevention of duplicates.",
+    "Response times meeting performance targets: mood detection under 5 seconds (face), under 2 seconds (text), playlist fetching under 3 seconds per platform.",
+    "Comprehensive error handling for all API calls, including handling of network errors, invalid inputs, and API rate limits.",
+    "Privacy compliance by secure handling of user data and no permanent storage of images."
+  ],
+  "code_summary": {
+    "project_name": "AI Music Mood Matcher",
+    "description": "AI-powered web application that detects user mood through facial recognition or text sentiment analysis and provides personalized music playlists from Spotify and YouTube",
+    "tech_stack": {
+      "frontend": {
+        "framework": "Next.js 14",
+        "language": "TypeScript",
+        "ui_library": "React 18",
+        "styling": "Tailwind CSS",
+        "animations": "Framer Motion",
+        "http_client": "Axios",
+        "charts": "Chart.js, react-chartjs-2",
+        "cookies": "js-cookie"
+      },
+      "backend": {
+        "framework": "Express.js",
+        "language": "JavaScript (Node.js)",
+        "database": "MongoDB with Mongoose",
+        "authentication": "JWT (jsonwebtoken)",
+        "password_hashing": "bcryptjs",
+        "cors": "cors",
+        "cookies": "cookie-parser",
+        "http_client": "axios"
+      },
+      "ml_service": {
+        "framework": "Flask",
+        "language": "Python",
+        "face_detection": "DeepFace",
+        "sentiment_analysis": "VADER Sentiment, TextBlob",
+        "image_processing": "OpenCV, Pillow",
+        "data_processing": "NumPy"
+      },
+      "apis": {
+        "spotify": "Spotify Web API",
+        "youtube": "YouTube Data API v3"
+      }
+    },
+    "features": {
+      "authentication": {
+        "email_password": "JWT-based email/password authentication",
+        "google_oauth": "Planned but not fully implemented",
+        "session_management": "Cookie-based JWT sessions (7 days)"
+      },
+      "mood_detection": {
+        "face_detection": "DeepFace-based facial emotion recognition with ensemble models",
+        "text_sentiment": "VADER + TextBlob sentiment analysis with keyword matching",
+        "supported_moods": [
+          "Happy",
+          "Sad",
+          "Angry",
+          "Neutral",
+          "Surprised",
+          "Fear",
+          "Disgust",
+          "Calm"
+        ]
+      },
+      "music_recommendations": {
+        "spotify_playlists": "Search and fetch Spotify playlists based on mood",
+        "youtube_playlists": "Search and fetch YouTube playlists based on mood",
+        "mood_keywords": "Mood-to-keyword mapping for playlist search"
+      },
+      "user_features": {
+        "mood_history": "Track and display user mood detection history",
+        "favorites": "Save favorite songs/playlists from Spotify and YouTube",
+        "statistics": "Mood statistics and analytics",
+        "preferences": "User preferences for platform (spotify/youtube/both) and theme"
+      },
+      "ui_features": {
+        "responsive_design": "Mobile-first responsive design",
+        "animations": "Smooth Framer Motion animations",
+        "glassmorphism": "Modern glass-effect UI components",
+        "dark_theme": "Futuristic dark theme with neon accents"
+      }
+    },
+    "project_structure": {
+      "frontend": {
+        "pages": [
+          "Landing page (/)",
+          "Dashboard (/dashboard)",
+          "Mood Detection (/detect-mood)",
+          "Results (/results)",
+          "History (/history)",
+          "Settings (/settings)",
+          "Login (/login)",
+          "Signup (/signup)"
+        ],
+        "components": [
+          "Navbar"
+        ],
+        "contexts": [
+          "AuthContext"
+        ]
+      },
+      "backend": {
+        "routes": [
+          "/api/auth (signup, login, me, logout)",
+          "/api/moods (create, history, stats)",
+          "/api/playlists (spotify/:mood, youtube/:mood)",
+          "/api/favorites (create, read, delete)",
+          "/api/users (preferences)"
+        ],
+        "models": [
+          "User",
+          "MoodLog",
+          "Favorite"
+        ],
+        "middleware": [
+          "auth (JWT verification)"
+        ]
+      },
+      "ml_service": {
+        "endpoints": [
+          "/health",
+          "/detect-emotion (POST)",
+          "/detect-sentiment (POST)"
+        ]
+      }
+    },
+    "key_functionality": {
+      "user_flows": [
+        "User registration and login",
+        "Mood detection via face or text",
+        "Playlist fetching from Spotify/YouTube",
+        "Saving favorites",
+        "Viewing mood history and statistics",
+        "Updating preferences"
+      ],
+      "api_integrations": {
+        "spotify": "Client credentials flow for playlist search",
+        "youtube": "API key-based playlist search"
+      },
+      "data_flow": {
+        "mood_detection": "Frontend -> ML Service -> Backend -> MongoDB",
+        "playlist_fetching": "Frontend -> Backend -> Spotify/YouTube APIs",
+        "authentication": "Frontend -> Backend -> MongoDB -> JWT token"
+      }
+    },
+    "environment_variables": {
+      "backend": [
+        "PORT",
+        "ML_SERVICE_URL",
+        "MONGODB_URI",
+        "JWT_SECRET",
+        "SPOTIFY_CLIENT_ID",
+        "SPOTIFY_CLIENT_SECRET",
+        "YOUTUBE_API_KEY",
+        "FRONTEND_URL",
+        "NODE_ENV"
+      ],
+      "frontend": [
+        "NEXT_PUBLIC_API_URL",
+        "NEXT_PUBLIC_ML_SERVICE_URL"
+      ]
+    },
+    "deployment": {
+      "frontend": "Vercel (Next.js)",
+      "backend": "Render/Railway (Node.js)",
+      "ml_service": "Render/Railway (Python/Flask)",
+      "database": "MongoDB Atlas"
+    }
+  }
+}

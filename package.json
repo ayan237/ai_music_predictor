@@ -1,0 +1,19 @@
+{
+  "name": "ai-music-mood-matcher",
+  "version": "1.0.0",
+  "description": "AI-powered web app that detects mood and curates personalized playlists",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:ml": "cd ml-service && python app.py",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "dependencies": {
+    "mongodb": "^7.0.0"
+  }
+}
